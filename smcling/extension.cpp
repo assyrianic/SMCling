@@ -35,7 +35,18 @@
  * @file extension.cpp
  * @brief Implement extension code here.
  */
-
-CSM_Cling g_ClingInterp;		/**< Global singleton for extension's main interface */
-
+cling::Interpreter g_interp(1, NULL);
+SMCling g_ClingInterp;		/**< Global singleton for extension's main interface */
 SMEXT_LINK(&g_ClingInterp);
+
+bool SMCling::SDK_OnLoad(char *error, size_t maxlength, bool late)
+{
+	// Shit's loaded, check for a directory and C++ source files to exec.
+	g_interp.process("int i = 5;");
+	return true;
+}
+
+void SMCling::SDK_OnUnload()
+{
+	// Shit's being unloaded, close directories and kill processes used by interpreter.
+}
