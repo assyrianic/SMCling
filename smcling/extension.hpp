@@ -41,6 +41,7 @@
 #include "cling/Interpreter/Interpreter.h"
 #include "cling/Interpreter/Value.h"
 
+extern cling::Interpreter g_interp;	// making extern so other extensions could possibly use this.
 
 /**
  * @brief Sample implementation of the SDK Extension.
