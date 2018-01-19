@@ -43,6 +43,7 @@ bool SMCling::SDK_OnLoad(char *error, size_t maxlength, bool late)
 {
 	// Shit's loaded, check for a directory and C++ source files to exec.
 	g_interp.process("int i = 5;");
+	puts("SMCLING Ext :: Loaded Successfully!\n");
 	return true;
 }
 
