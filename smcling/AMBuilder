@@ -10,6 +10,19 @@ sourceFiles = [
 
 project = Extension.HL2Project(builder, projectName + '.ext')
 
+clingDeps = [
+	# cling shit.
+	'libclingInterpreter.a', 'libclingMetaProcessor.a', 'libclingUserInterface.a', 'libclingUtils.a',
+	
+	# clang shit.
+	#'libclangBasic.a', 'libclangLex.a', 'libclangParse.a', 'libclangAST.a', 'libclangDynamicASTMatchers.a', 'libclangASTMatchers.a', 'libclangSema.a', 'libclangCodeGen.a', 'libclangAnalysis.a', 'libclangEdit.a', 'libclangRewrite.a', 'libclangARCMigrate.a', 'libclangDriver.a', 'libclangSerialization.a', 'libclangRewriteFrontend.a', 'libclangFrontend.a', 'libclangFrontendTool.a', 'libclangToolingCore.a', 'libclangToolingRefactor.a', 'libclangTooling.a', 'libclangIndex.a', 'libclangStaticAnalyzerCore.a', 'libclangStaticAnalyzerCheckers.a', 'libclangStaticAnalyzerFrontend.a', 'libclangFormat.a',
+	
+	'libclangTooling.a', 'libclangFrontendTool.a', 'libclangFrontend.a', 'libclangDriver.a', 'libclangSerialization.a', 'libclangCodeGen.a', 'libclangParse.a', 'libclangSema.a', 'libclangStaticAnalyzerFrontend.a', 'libclangStaticAnalyzerCheckers.a', 'libclangStaticAnalyzerCore.a', 'libclangAnalysis.a', 'libclangARCMigrate.a', 'libclangRewrite.a', 'libclangRewriteFrontend.a', 'libclangEdit.a', 'libclangAST.a', 'libclangLex.a', 'libclangBasic.a', 'libclang.so',
+	
+	# LLVM shit.
+	'libLLVMLTO.a', 'libLLVMPasses.a', 'libLLVMObjCARCOpts.a', 'libLLVMSymbolize.a', 'libLLVMDebugInfoPDB.a', 'libLLVMDebugInfoDWARF.a', 'libLLVMMIRParser.a', 'libLLVMCoverage.a', 'libLLVMTableGen.a', 'libLLVMDlltoolDriver.a', 'libLLVMOrcJIT.a', 'libLLVMXCoreDisassembler.a', 'libLLVMXCoreCodeGen.a', 'libLLVMXCoreDesc.a', 'libLLVMXCoreInfo.a', 'libLLVMXCoreAsmPrinter.a', 'libLLVMSystemZDisassembler.a', 'libLLVMSystemZCodeGen.a', 'libLLVMSystemZAsmParser.a', 'libLLVMSystemZDesc.a', 'libLLVMSystemZInfo.a', 'libLLVMSystemZAsmPrinter.a', 'libLLVMSparcDisassembler.a', 'libLLVMSparcCodeGen.a', 'libLLVMSparcAsmParser.a', 'libLLVMSparcDesc.a', 'libLLVMSparcInfo.a', 'libLLVMSparcAsmPrinter.a', 'libLLVMPowerPCDisassembler.a', 'libLLVMPowerPCCodeGen.a', 'libLLVMPowerPCAsmParser.a', 'libLLVMPowerPCDesc.a', 'libLLVMPowerPCInfo.a', 'libLLVMPowerPCAsmPrinter.a', 'libLLVMNVPTXCodeGen.a', 'libLLVMNVPTXDesc.a', 'libLLVMNVPTXInfo.a', 'libLLVMNVPTXAsmPrinter.a', 'libLLVMMSP430CodeGen.a', 'libLLVMMSP430Desc.a', 'libLLVMMSP430Info.a', 'libLLVMMSP430AsmPrinter.a', 'libLLVMMipsDisassembler.a', 'libLLVMMipsCodeGen.a', 'libLLVMMipsAsmParser.a', 'libLLVMMipsDesc.a', 'libLLVMMipsInfo.a', 'libLLVMMipsAsmPrinter.a', 'libLLVMLanaiDisassembler.a', 'libLLVMLanaiCodeGen.a', 'libLLVMLanaiAsmParser.a', 'libLLVMLanaiDesc.a', 'libLLVMLanaiAsmPrinter.a', 'libLLVMLanaiInfo.a', 'libLLVMHexagonDisassembler.a', 'libLLVMHexagonCodeGen.a', 'libLLVMHexagonAsmParser.a', 'libLLVMHexagonDesc.a', 'libLLVMHexagonInfo.a', 'libLLVMBPFDisassembler.a', 'libLLVMBPFCodeGen.a', 'libLLVMBPFDesc.a', 'libLLVMBPFInfo.a', 'libLLVMBPFAsmPrinter.a', 'libLLVMARMDisassembler.a', 'libLLVMARMCodeGen.a', 'libLLVMARMAsmParser.a', 'libLLVMARMDesc.a', 'libLLVMARMInfo.a', 'libLLVMARMAsmPrinter.a', 'libLLVMAMDGPUDisassembler.a', 'libLLVMAMDGPUCodeGen.a', 'libLLVMAMDGPUAsmParser.a', 'libLLVMAMDGPUDesc.a', 'libLLVMAMDGPUInfo.a', 'libLLVMAMDGPUAsmPrinter.a', 'libLLVMAMDGPUUtils.a', 'libLLVMAArch64Disassembler.a', 'libLLVMAArch64CodeGen.a', 'libLLVMAArch64AsmParser.a', 'libLLVMAArch64Desc.a', 'libLLVMAArch64Info.a', 'libLLVMAArch64AsmPrinter.a', 'libLLVMAArch64Utils.a', 'libLLVMObjectYAML.a', 'libLLVMLibDriver.a', 'libLLVMOption.a', 'libLLVMX86Disassembler.a', 'libLLVMX86AsmParser.a', 'libLLVMX86CodeGen.a', 'libLLVMGlobalISel.a', 'libLLVMSelectionDAG.a', 'libLLVMAsmPrinter.a', 'libLLVMDebugInfoCodeView.a', 'libLLVMDebugInfoMSF.a', 'libLLVMX86Desc.a', 'libLLVMMCDisassembler.a', 'libLLVMX86Info.a', 'libLLVMX86AsmPrinter.a', 'libLLVMX86Utils.a', 'libLLVMMCJIT.a', 'libLLVMLineEditor.a', 'libLLVMInterpreter.a', 'libLLVMExecutionEngine.a', 'libLLVMRuntimeDyld.a', 'libLLVMCodeGen.a', 'libLLVMTarget.a', 'libLLVMCoroutines.a', 'libLLVMipo.a', 'libLLVMInstrumentation.a', 'libLLVMVectorize.a', 'libLLVMScalarOpts.a', 'libLLVMLinker.a', 'libLLVMIRReader.a', 'libLLVMAsmParser.a', 'libLLVMInstCombine.a', 'libLLVMTransformUtils.a', 'libLLVMBitWriter.a', 'libLLVMAnalysis.a', 'libLLVMProfileData.a', 'libLLVMObject.a', 'libLLVMMCParser.a', 'libLLVMMC.a', 'libLLVMBitReader.a', 'libLLVMCore.a', 'libLLVMBinaryFormat.a', 'libLLVMSupport.a', 'libLLVMDemangle.a'
+	]
+
 if os.path.isfile(os.path.join(builder.currentSourcePath, 'sdk', 'smsdk_ext.cpp')):
 	# Use the copy included in the project
 	project.sources += [os.path.join('sdk', 'smsdk_ext.cpp')]
@@ -22,138 +35,12 @@ project.sources += sourceFiles
 for sdk_name in Extension.sdks:
 	sdk = Extension.sdks[sdk_name]
 	binary = Extension.HL2Config(project, projectName + '.ext.' + sdk.ext, sdk)
-	binary.compiler.postlink += [
-		# path is sourcecode_path + 'lib' folder + .a file.
-		os.path.join(builder.currentSourcePath, 'lib', 'libclingMetaProcessor.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libclingInterpreter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libclingUtils.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libclangFrontend.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libclangCodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libclangSema.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libclangBasic.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libclangSerialization.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libclangDriver.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libclangEdit.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libclangLex.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libclangTooling.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libclangAnalysis.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libclangAST.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMLTO.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMObjCARCOpts.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSymbolize.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMDebugInfoPDB.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMDebugInfoDWARF.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMXCoreDisassembler.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMXCoreCodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMXCoreDesc.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMXCoreInfo.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMXCoreAsmPrinter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSystemZDisassembler.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSystemZCodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSystemZAsmParser.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSystemZDesc.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSystemZInfo.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSystemZAsmPrinter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSparcDisassembler.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSparcCodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSparcAsmParser.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSparcDesc.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSparcInfo.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSparcAsmPrinter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMPowerPCDisassembler.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMPowerPCCodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMPowerPCAsmParser.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMPowerPCDesc.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMPowerPCInfo.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMPowerPCAsmPrinter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMNVPTXCodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMNVPTXDesc.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMNVPTXInfo.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMNVPTXAsmPrinter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMSP430CodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMSP430Desc.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMSP430Info.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMSP430AsmPrinter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMipsDisassembler.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMipsCodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMipsDisassembler.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMipsCodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMipsAsmParser.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMipsDesc.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMipsInfo.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMipsAsmPrinter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMHexagonDisassembler.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMHexagonCodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMHexagonAsmParser.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMHexagonDesc.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMHexagonInfo.a'),
-		#os.path.join(builder.currentSourcePath, 'lib', 'libLLVMCppBackendCodeGen.a'),
-		#os.path.join(builder.currentSourcePath, 'lib', 'libLLVMCppBackendInfo.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMBPFCodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMBPFDesc.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMBPFInfo.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMBPFAsmPrinter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMARMDisassembler.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMARMCodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMARMAsmParser.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMARMDesc.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMARMInfo.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMARMAsmPrinter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAMDGPUCodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAMDGPUAsmParser.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAMDGPUDesc.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAMDGPUUtils.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAMDGPUInfo.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAMDGPUAsmPrinter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAArch64Disassembler.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAArch64CodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAArch64AsmParser.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAArch64Desc.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAArch64Info.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAArch64AsmPrinter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAArch64Utils.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMIRParser.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMLibDriver.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMOption.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMTableGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMLineEditor.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMX86Disassembler.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMX86AsmParser.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMX86CodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSelectionDAG.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAsmPrinter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMX86Desc.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMCDisassembler.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMX86Info.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMX86AsmPrinter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMX86Utils.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMCJIT.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMPasses.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMipo.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMVectorize.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMLinker.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMIRReader.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAsmParser.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMDebugInfoCodeView.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMInterpreter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMCodeGen.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMScalarOpts.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMInstCombine.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMInstrumentation.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMProfileData.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMBitWriter.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMOrcJIT.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMTransformUtils.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMExecutionEngine.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMTarget.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMAnalysis.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMRuntimeDyld.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMObject.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMCParser.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMBitReader.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMMC.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMCore.a'),
-		os.path.join(builder.currentSourcePath, 'lib', 'libLLVMSupport.a')
-	]
+	
+	#for dep in clingDeps:
+	#	binary.compiler.postlink += [os.path.join(builder.currentSourcePath, 'lib', dep)]
+	
+	binary.compiler.postlink += ['-L./lib/ -lcling -Wl,-rpath,\'$ORIGIN\'']
+	#binary.compiler.postlink += ['-Wl,--no-undefined']
+	#binary.compiler.postlink += [os.path.join(builder.currentSourcePath, 'lib', 'libcling.so')]
 
 Extension.extensions = builder.Add(project)
