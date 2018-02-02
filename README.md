@@ -6,9 +6,8 @@ To build SMCling, you need to [build the Cling interpreter first](https://root.c
 
 Cling is built atop Clang and LLVM, so you'll need the header files for both systems to compile Cling AND to use Cling in the extension.
 
-The folders containing the header files (clang, clang-c, cling, llvm, llvm-c) should be in the same directory as "extension.cpp".
+after you've built Cling from scratch using the build instructions, copy the "lib" folder from the "inst" or "obj" folder into the smcling directory. The "lib" folder is required as it contains the libraries needed to link the extension.
 
-after you've built Cling from scratch using the build instructions, copy the "lib" folder from the "inst" or "obj" folder into the same directory. The "lib" folder is required as it contains the static library to be linked to the extension.
+Next, create a folder in "lib" and name it "include", then copy the header files (clang, clang-c, cling, llvm, llvm-c) to the "include" folder in "lib".
 
-if you've copied the libraries from the "lib" folder in "inst" or in "obj", be sure to use `llvm-config --libdir --libs` to check all the dependencies that needs to be linked into the extension.
-
+After that, you can now compile smcling!
