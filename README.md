@@ -1,5 +1,5 @@
-# .SMExtension.SMCling
-SourceMod extension that embeds the Cling C++ interpreter to run C++ source code as plugins.
+# SMCling
+'SMCling' is a SourceMod extension that embeds the Cling C++ interpreter to run C++ source code as plugins.
 
 ## Building
 To build SMCling, you need to [build the Cling interpreter first](https://root.cern.ch/cling-build-instructions)
