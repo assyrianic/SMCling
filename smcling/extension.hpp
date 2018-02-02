@@ -37,11 +37,14 @@
  * @brief Sample extension code header.
  */
 
+#include <cstdio>
 #include "smsdk_ext.h"
 #include "cling/Interpreter/Interpreter.h"
 #include "cling/Interpreter/Value.h"
 
-extern cling::Interpreter *g_pInterp;	// making extern so other extensions could possibly use this.
+#define DEBUG 1
+
+extern class cling::Interpreter *g_pCling;	// making extern so other extensions could possibly use this.
 
 /**
  * @brief Sample implementation of the SDK Extension.

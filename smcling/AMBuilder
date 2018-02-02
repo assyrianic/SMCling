@@ -35,11 +35,14 @@ project.sources += sourceFiles
 for sdk_name in Extension.sdks:
 	sdk = Extension.sdks[sdk_name]
 	binary = Extension.HL2Config(project, projectName + '.ext.' + sdk.ext, sdk)
+	binary.compiler.cxxflags += [
+		'-I' + builder.currentSourcePath + 'lib/include',
+	]
 	
 	#for dep in clingDeps:
 	#	binary.compiler.postlink += [os.path.join(builder.currentSourcePath, 'lib', dep)]
 	
-	binary.compiler.postlink += ['-L./lib/ -lcling -Wl,-rpath,\'$ORIGIN\'']
+	binary.compiler.postlink += ["-L./lib/ -lcling -Wl,-rpath,'$ORIGIN/lib'"]
 	#binary.compiler.postlink += ['-Wl,--no-undefined']
 	#binary.compiler.postlink += [os.path.join(builder.currentSourcePath, 'lib', 'libcling.so')]
 
