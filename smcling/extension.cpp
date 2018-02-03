@@ -68,6 +68,7 @@ bool SMCling::SDK_OnLoad(char *error, size_t maxlength, bool late)
 	}
 	
 	g_pCling = new cling::Interpreter(interp_args.size(), &(interp_args[0]), (const char *)pathway.c_str());
+	
 #if defined DEBUG
 	puts("SMCLING :: Instantiated Interpreter.");
 #endif

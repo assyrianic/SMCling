@@ -10,19 +10,6 @@ sourceFiles = [
 
 project = Extension.HL2Project(builder, projectName + '.ext')
 
-clingDeps = [
-	# cling shit.
-	'libclingInterpreter.a', 'libclingMetaProcessor.a', 'libclingUserInterface.a', 'libclingUtils.a',
-	
-	# clang shit.
-	#'libclangBasic.a', 'libclangLex.a', 'libclangParse.a', 'libclangAST.a', 'libclangDynamicASTMatchers.a', 'libclangASTMatchers.a', 'libclangSema.a', 'libclangCodeGen.a', 'libclangAnalysis.a', 'libclangEdit.a', 'libclangRewrite.a', 'libclangARCMigrate.a', 'libclangDriver.a', 'libclangSerialization.a', 'libclangRewriteFrontend.a', 'libclangFrontend.a', 'libclangFrontendTool.a', 'libclangToolingCore.a', 'libclangToolingRefactor.a', 'libclangTooling.a', 'libclangIndex.a', 'libclangStaticAnalyzerCore.a', 'libclangStaticAnalyzerCheckers.a', 'libclangStaticAnalyzerFrontend.a', 'libclangFormat.a',
-	
-	'libclangTooling.a', 'libclangFrontendTool.a', 'libclangFrontend.a', 'libclangDriver.a', 'libclangSerialization.a', 'libclangCodeGen.a', 'libclangParse.a', 'libclangSema.a', 'libclangStaticAnalyzerFrontend.a', 'libclangStaticAnalyzerCheckers.a', 'libclangStaticAnalyzerCore.a', 'libclangAnalysis.a', 'libclangARCMigrate.a', 'libclangRewrite.a', 'libclangRewriteFrontend.a', 'libclangEdit.a', 'libclangAST.a', 'libclangLex.a', 'libclangBasic.a', 'libclang.so',
-	
-	# LLVM shit.
-	'libLLVMLTO.a', 'libLLVMPasses.a', 'libLLVMObjCARCOpts.a', 'libLLVMSymbolize.a', 'libLLVMDebugInfoPDB.a', 'libLLVMDebugInfoDWARF.a', 'libLLVMMIRParser.a', 'libLLVMCoverage.a', 'libLLVMTableGen.a', 'libLLVMDlltoolDriver.a', 'libLLVMOrcJIT.a', 'libLLVMXCoreDisassembler.a', 'libLLVMXCoreCodeGen.a', 'libLLVMXCoreDesc.a', 'libLLVMXCoreInfo.a', 'libLLVMXCoreAsmPrinter.a', 'libLLVMSystemZDisassembler.a', 'libLLVMSystemZCodeGen.a', 'libLLVMSystemZAsmParser.a', 'libLLVMSystemZDesc.a', 'libLLVMSystemZInfo.a', 'libLLVMSystemZAsmPrinter.a', 'libLLVMSparcDisassembler.a', 'libLLVMSparcCodeGen.a', 'libLLVMSparcAsmParser.a', 'libLLVMSparcDesc.a', 'libLLVMSparcInfo.a', 'libLLVMSparcAsmPrinter.a', 'libLLVMPowerPCDisassembler.a', 'libLLVMPowerPCCodeGen.a', 'libLLVMPowerPCAsmParser.a', 'libLLVMPowerPCDesc.a', 'libLLVMPowerPCInfo.a', 'libLLVMPowerPCAsmPrinter.a', 'libLLVMNVPTXCodeGen.a', 'libLLVMNVPTXDesc.a', 'libLLVMNVPTXInfo.a', 'libLLVMNVPTXAsmPrinter.a', 'libLLVMMSP430CodeGen.a', 'libLLVMMSP430Desc.a', 'libLLVMMSP430Info.a', 'libLLVMMSP430AsmPrinter.a', 'libLLVMMipsDisassembler.a', 'libLLVMMipsCodeGen.a', 'libLLVMMipsAsmParser.a', 'libLLVMMipsDesc.a', 'libLLVMMipsInfo.a', 'libLLVMMipsAsmPrinter.a', 'libLLVMLanaiDisassembler.a', 'libLLVMLanaiCodeGen.a', 'libLLVMLanaiAsmParser.a', 'libLLVMLanaiDesc.a', 'libLLVMLanaiAsmPrinter.a', 'libLLVMLanaiInfo.a', 'libLLVMHexagonDisassembler.a', 'libLLVMHexagonCodeGen.a', 'libLLVMHexagonAsmParser.a', 'libLLVMHexagonDesc.a', 'libLLVMHexagonInfo.a', 'libLLVMBPFDisassembler.a', 'libLLVMBPFCodeGen.a', 'libLLVMBPFDesc.a', 'libLLVMBPFInfo.a', 'libLLVMBPFAsmPrinter.a', 'libLLVMARMDisassembler.a', 'libLLVMARMCodeGen.a', 'libLLVMARMAsmParser.a', 'libLLVMARMDesc.a', 'libLLVMARMInfo.a', 'libLLVMARMAsmPrinter.a', 'libLLVMAMDGPUDisassembler.a', 'libLLVMAMDGPUCodeGen.a', 'libLLVMAMDGPUAsmParser.a', 'libLLVMAMDGPUDesc.a', 'libLLVMAMDGPUInfo.a', 'libLLVMAMDGPUAsmPrinter.a', 'libLLVMAMDGPUUtils.a', 'libLLVMAArch64Disassembler.a', 'libLLVMAArch64CodeGen.a', 'libLLVMAArch64AsmParser.a', 'libLLVMAArch64Desc.a', 'libLLVMAArch64Info.a', 'libLLVMAArch64AsmPrinter.a', 'libLLVMAArch64Utils.a', 'libLLVMObjectYAML.a', 'libLLVMLibDriver.a', 'libLLVMOption.a', 'libLLVMX86Disassembler.a', 'libLLVMX86AsmParser.a', 'libLLVMX86CodeGen.a', 'libLLVMGlobalISel.a', 'libLLVMSelectionDAG.a', 'libLLVMAsmPrinter.a', 'libLLVMDebugInfoCodeView.a', 'libLLVMDebugInfoMSF.a', 'libLLVMX86Desc.a', 'libLLVMMCDisassembler.a', 'libLLVMX86Info.a', 'libLLVMX86AsmPrinter.a', 'libLLVMX86Utils.a', 'libLLVMMCJIT.a', 'libLLVMLineEditor.a', 'libLLVMInterpreter.a', 'libLLVMExecutionEngine.a', 'libLLVMRuntimeDyld.a', 'libLLVMCodeGen.a', 'libLLVMTarget.a', 'libLLVMCoroutines.a', 'libLLVMipo.a', 'libLLVMInstrumentation.a', 'libLLVMVectorize.a', 'libLLVMScalarOpts.a', 'libLLVMLinker.a', 'libLLVMIRReader.a', 'libLLVMAsmParser.a', 'libLLVMInstCombine.a', 'libLLVMTransformUtils.a', 'libLLVMBitWriter.a', 'libLLVMAnalysis.a', 'libLLVMProfileData.a', 'libLLVMObject.a', 'libLLVMMCParser.a', 'libLLVMMC.a', 'libLLVMBitReader.a', 'libLLVMCore.a', 'libLLVMBinaryFormat.a', 'libLLVMSupport.a', 'libLLVMDemangle.a'
-	]
-
 if os.path.isfile(os.path.join(builder.currentSourcePath, 'sdk', 'smsdk_ext.cpp')):
 	# Use the copy included in the project
 	project.sources += [os.path.join('sdk', 'smsdk_ext.cpp')]
@@ -42,7 +29,7 @@ for sdk_name in Extension.sdks:
 	#for dep in clingDeps:
 	#	binary.compiler.postlink += [os.path.join(builder.currentSourcePath, 'lib', dep)]
 	
-	binary.compiler.postlink += ["-L./lib/ -lcling -Wl,-rpath,'$ORIGIN/lib'"]
+	#binary.compiler.postlink += ["-L./lib/ -lcling -Wl,-rpath,\'$ORIGIN\'"]
 	#binary.compiler.postlink += ['-Wl,--no-undefined']
 	#binary.compiler.postlink += [os.path.join(builder.currentSourcePath, 'lib', 'libcling.so')]
 
